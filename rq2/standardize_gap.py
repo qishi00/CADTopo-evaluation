@@ -64,9 +64,9 @@ FROZEN = {
     "Cadrille-SFT": P17_T2C["Cadrille-SFT"]["t2c_corpus"]["rq2b"],
 }
 
-# ---- fingerprint / command-count cache (frozen artifact: test tid -> (fingerprint, ncmd)) ----
-st = pickle.load(io.open(AUDIT / "_p8_fp_cache.pkl", "rb"))
-ncmd = {tid.split("/")[-1]: n for tid, (fp, n) in st["test"].items()}
+# ---- fingerprint / command-count cache (frozen artifact: test tid -> [ncmd, fp hash]) ----
+_fp = json.load(io.open(AUDIT / "test_fingerprint_ncmd_v1.json", encoding="utf-8"))
+ncmd = {tid.split("/")[-1]: v[0] for tid, v in _fp.items()}
 allnc = sorted(ncmd.values())
 TERC = (float(np.percentile(allnc, 33.333)), float(np.percentile(allnc, 66.667)))
 

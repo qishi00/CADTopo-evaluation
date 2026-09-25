@@ -68,8 +68,9 @@ def fp_of(tid):
 
 def main():
     OUT.mkdir(exist_ok=True)
-    st = pickle.load(open(AUDIT / "_p8_fp_cache.pkl", "rb"))
-    train_fp = st["train_fp"]                      # 'shard/uid' -> (n_rows, hash)
+    import gzip
+    with gzip.open(AUDIT / "train_fingerprint_v1.json.gz", "rt", encoding="utf-8") as f:
+        train_fp = {k: tuple(v) for k, v in json.load(f).items()}  # 'shard/uid' -> (n_rows, hash)
     split = json.load(open(EXTERNAL / "train_val_test_split.json", encoding="utf-8"))
     dc_train = list(split["train"])
     t2c_train = sorted(json.load(open(EXTERNAL / "text2cad_train_split.json",
