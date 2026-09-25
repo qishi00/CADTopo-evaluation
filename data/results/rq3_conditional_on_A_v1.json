@@ -1,0 +1,386 @@
+{
+ "Text2CAD": {
+  "n_bases_consistent": 931,
+  "n_bases_A_correct": 658,
+  "B": {
+   "attempted": 402,
+   "n_valid": 402,
+   "hit": 0.0,
+   "hit_ci": [
+    0.0,
+    0.0
+   ],
+   "dir_only": 0.0,
+   "dir_only_ci": [
+    0.0,
+    0.0
+   ],
+   "ignore": 1.0,
+   "ignore_ci": [
+    1.0,
+    1.0
+   ],
+   "partial": 0.0,
+   "partial_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_dir": 0.0,
+   "wrong_dir_ci": [
+    0.0,
+    0.0
+   ]
+  },
+  "C_merged": {
+   "attempted": 218,
+   "n_valid": 215,
+   "hit": 0.0,
+   "hit_ci": [
+    0.0,
+    0.0
+   ],
+   "dir_only": 0.0047,
+   "dir_only_ci": [
+    0.0,
+    0.014
+   ],
+   "ignore": 0.986,
+   "ignore_ci": [
+    0.9674,
+    1.0
+   ],
+   "partial": 0.0093,
+   "partial_ci": [
+    0.0,
+    0.0233
+   ],
+   "wrong_dir": 0.0,
+   "wrong_dir_ci": [
+    0.0,
+    0.0
+   ]
+  },
+  "C_clean": {
+   "attempted": 83,
+   "n_valid": 81,
+   "hit": 0.0,
+   "hit_ci": [
+    0.0,
+    0.0
+   ],
+   "dir_only": 0.0,
+   "dir_only_ci": [
+    0.0,
+    0.0
+   ],
+   "ignore": 1.0,
+   "ignore_ci": [
+    1.0,
+    1.0
+   ],
+   "partial": 0.0,
+   "partial_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_dir": 0.0,
+   "wrong_dir_ci": [
+    0.0,
+    0.0
+   ]
+  },
+  "C_conflict": {
+   "attempted": 135,
+   "n_valid": 134,
+   "hit": 0.0,
+   "hit_ci": [
+    0.0,
+    0.0
+   ],
+   "dir_only": 0.0075,
+   "dir_only_ci": [
+    0.0,
+    0.0224
+   ],
+   "ignore": 0.9776,
+   "ignore_ci": [
+    0.9478,
+    1.0
+   ],
+   "partial": 0.0149,
+   "partial_ci": [
+    0.0,
+    0.0373
+   ],
+   "wrong_dir": 0.0,
+   "wrong_dir_ci": [
+    0.0,
+    0.0
+   ]
+  },
+  "D_distractor": {
+   "n_paired_valid": 654,
+   "sig_stable_vs_A": 0.9954,
+   "sig_stable_ci": [
+    0.9893,
+    1.0
+   ]
+  }
+ },
+ "CAD-Coder": {
+  "n_bases_consistent": 931,
+  "n_bases_A_correct": 750,
+  "B": {
+   "attempted": 440,
+   "n_valid": 438,
+   "hit": 0.0,
+   "hit_ci": [
+    0.0,
+    0.0
+   ],
+   "dir_only": 0.0,
+   "dir_only_ci": [
+    0.0,
+    0.0
+   ],
+   "ignore": 1.0,
+   "ignore_ci": [
+    1.0,
+    1.0
+   ],
+   "partial": 0.0,
+   "partial_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_dir": 0.0,
+   "wrong_dir_ci": [
+    0.0,
+    0.0
+   ]
+  },
+  "C_merged": {
+   "attempted": 262,
+   "n_valid": 260,
+   "hit": 0.0115,
+   "hit_ci": [
+    0.0,
+    0.0269
+   ],
+   "dir_only": 0.0,
+   "dir_only_ci": [
+    0.0,
+    0.0
+   ],
+   "ignore": 0.9808,
+   "ignore_ci": [
+    0.9615,
+    0.9962
+   ],
+   "partial": 0.0077,
+   "partial_ci": [
+    0.0,
+    0.0192
+   ],
+   "wrong_dir": 0.0,
+   "wrong_dir_ci": [
+    0.0,
+    0.0
+   ]
+  },
+  "C_clean": {
+   "attempted": 112,
+   "n_valid": 111,
+   "hit": 0.0,
+   "hit_ci": [
+    0.0,
+    0.0
+   ],
+   "dir_only": 0.0,
+   "dir_only_ci": [
+    0.0,
+    0.0
+   ],
+   "ignore": 0.991,
+   "ignore_ci": [
+    0.973,
+    1.0
+   ],
+   "partial": 0.009,
+   "partial_ci": [
+    0.0,
+    0.027
+   ],
+   "wrong_dir": 0.0,
+   "wrong_dir_ci": [
+    0.0,
+    0.0
+   ]
+  },
+  "C_conflict": {
+   "attempted": 150,
+   "n_valid": 149,
+   "hit": 0.0201,
+   "hit_ci": [
+    0.0,
+    0.047
+   ],
+   "dir_only": 0.0,
+   "dir_only_ci": [
+    0.0,
+    0.0
+   ],
+   "ignore": 0.9732,
+   "ignore_ci": [
+    0.9463,
+    0.9933
+   ],
+   "partial": 0.0067,
+   "partial_ci": [
+    0.0,
+    0.0201
+   ],
+   "wrong_dir": 0.0,
+   "wrong_dir_ci": [
+    0.0,
+    0.0
+   ]
+  },
+  "D_distractor": {
+   "n_paired_valid": 746,
+   "sig_stable_vs_A": 0.9973,
+   "sig_stable_ci": [
+    0.9933,
+    1.0
+   ]
+  }
+ },
+ "Cadrille-SFT": {
+  "n_bases_consistent": 931,
+  "n_bases_A_correct": 638,
+  "B": {
+   "attempted": 402,
+   "n_valid": 396,
+   "hit": 0.0101,
+   "hit_ci": [
+    0.0025,
+    0.0202
+   ],
+   "dir_only": 0.0,
+   "dir_only_ci": [
+    0.0,
+    0.0
+   ],
+   "ignore": 0.9899,
+   "ignore_ci": [
+    0.9798,
+    0.9975
+   ],
+   "partial": 0.0,
+   "partial_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_dir": 0.0,
+   "wrong_dir_ci": [
+    0.0,
+    0.0
+   ]
+  },
+  "C_merged": {
+   "attempted": 199,
+   "n_valid": 196,
+   "hit": 0.0255,
+   "hit_ci": [
+    0.0051,
+    0.051
+   ],
+   "dir_only": 0.0,
+   "dir_only_ci": [
+    0.0,
+    0.0
+   ],
+   "ignore": 0.9694,
+   "ignore_ci": [
+    0.9439,
+    0.9898
+   ],
+   "partial": 0.0,
+   "partial_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_dir": 0.0051,
+   "wrong_dir_ci": [
+    0.0,
+    0.0153
+   ]
+  },
+  "C_clean": {
+   "attempted": 83,
+   "n_valid": 82,
+   "hit": 0.0366,
+   "hit_ci": [
+    0.0,
+    0.0854
+   ],
+   "dir_only": 0.0,
+   "dir_only_ci": [
+    0.0,
+    0.0
+   ],
+   "ignore": 0.9634,
+   "ignore_ci": [
+    0.9146,
+    1.0
+   ],
+   "partial": 0.0,
+   "partial_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_dir": 0.0,
+   "wrong_dir_ci": [
+    0.0,
+    0.0
+   ]
+  },
+  "C_conflict": {
+   "attempted": 116,
+   "n_valid": 114,
+   "hit": 0.0175,
+   "hit_ci": [
+    0.0,
+    0.0439
+   ],
+   "dir_only": 0.0,
+   "dir_only_ci": [
+    0.0,
+    0.0
+   ],
+   "ignore": 0.9737,
+   "ignore_ci": [
+    0.9386,
+    1.0
+   ],
+   "partial": 0.0,
+   "partial_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_dir": 0.0088,
+   "wrong_dir_ci": [
+    0.0,
+    0.0263
+   ]
+  },
+  "D_distractor": {
+   "n_paired_valid": 626,
+   "sig_stable_vs_A": 0.9808,
+   "sig_stable_ci": [
+    0.9696,
+    0.9904
+   ]
+  }
+ }
+}

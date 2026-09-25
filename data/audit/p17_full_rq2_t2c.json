@@ -1,0 +1,315 @@
+{
+ "tercile": [
+  6.0,
+  14.0
+ ],
+ "corpus": {
+  "shared": 24824,
+  "t2c": 24461
+ },
+ "models": {
+  "Text2CAD": {
+   "shared_recomputed": {
+    "n": 6705,
+    "rq2a": {
+     "covered_fid": 0.8485,
+     "covered_n": 6067,
+     "novel_fid": 0.3777,
+     "novel_n": 638,
+     "gap": 0.4708,
+     "covered_holed_fid": 0.6338,
+     "covered_holed_n": 1603,
+     "novel_holed_fid": 0.1257,
+     "novel_holed_n": 350
+    },
+    "rq2d": {
+     "C0|cov": {
+      "n": 4366,
+      "fid": 0.9361
+     },
+     "C0|nov": {
+      "n": 256,
+      "fid": 0.7539
+     },
+     "C12|cov": {
+      "n": 1401,
+      "fid": 0.6981
+     },
+     "C12|nov": {
+      "n": 229,
+      "fid": 0.1703
+     },
+     "C3p|cov": {
+      "n": 300,
+      "fid": 0.2767
+     },
+     "C3p|nov": {
+      "n": 153,
+      "fid": 0.0588
+     }
+    },
+    "rq2b": {
+     "gap": 0.1636,
+     "n_cells": 5,
+     "retained": 0.9937,
+     "ci": [
+      0.1258,
+      0.2054
+     ]
+    }
+   },
+   "t2c_corpus": {
+    "n": 6705,
+    "rq2a": {
+     "covered_fid": 0.8488,
+     "covered_n": 6064,
+     "novel_fid": 0.3775,
+     "novel_n": 641,
+     "gap": 0.4713,
+     "covered_holed_fid": 0.6346,
+     "covered_holed_n": 1601,
+     "novel_holed_fid": 0.125,
+     "novel_holed_n": 352
+    },
+    "rq2d": {
+     "C0|cov": {
+      "n": 4365,
+      "fid": 0.9361
+     },
+     "C0|nov": {
+      "n": 257,
+      "fid": 0.7549
+     },
+     "C12|cov": {
+      "n": 1400,
+      "fid": 0.6986
+     },
+     "C12|nov": {
+      "n": 230,
+      "fid": 0.1696
+     },
+     "C3p|cov": {
+      "n": 299,
+      "fid": 0.2776
+     },
+     "C3p|nov": {
+      "n": 154,
+      "fid": 0.0584
+     }
+    },
+    "rq2b": {
+     "gap": 0.1641,
+     "n_cells": 5,
+     "retained": 0.9938,
+     "ci": [
+      0.1236,
+      0.2017
+     ]
+    }
+   },
+   "sanity_shared_matches_frozen": true
+  },
+  "CAD-Coder": {
+   "shared_recomputed": {
+    "n": 7446,
+    "rq2a": {
+     "covered_fid": 0.8876,
+     "covered_n": 6644,
+     "novel_fid": 0.4526,
+     "novel_n": 802,
+     "gap": 0.435,
+     "covered_holed_fid": 0.696,
+     "covered_holed_n": 1750,
+     "novel_holed_fid": 0.2274,
+     "novel_holed_n": 453
+    },
+    "rq2d": {
+     "C0|cov": {
+      "n": 4761,
+      "fid": 0.9653
+     },
+     "C0|nov": {
+      "n": 304,
+      "fid": 0.8092
+     },
+     "C12|cov": {
+      "n": 1535,
+      "fid": 0.7544
+     },
+     "C12|nov": {
+      "n": 298,
+      "fid": 0.3221
+     },
+     "C3p|cov": {
+      "n": 348,
+      "fid": 0.4109
+     },
+     "C3p|nov": {
+      "n": 200,
+      "fid": 0.105
+     }
+    },
+    "rq2b": {
+     "gap": 0.1291,
+     "n_cells": 5,
+     "retained": 0.995,
+     "ci": [
+      0.0953,
+      0.1655
+     ]
+    }
+   },
+   "t2c_corpus": {
+    "n": 7446,
+    "rq2a": {
+     "covered_fid": 0.8876,
+     "covered_n": 6643,
+     "novel_fid": 0.4533,
+     "novel_n": 803,
+     "gap": 0.4343,
+     "covered_holed_fid": 0.696,
+     "covered_holed_n": 1750,
+     "novel_holed_fid": 0.2274,
+     "novel_holed_n": 453
+    },
+    "rq2d": {
+     "C0|cov": {
+      "n": 4760,
+      "fid": 0.9653
+     },
+     "C0|nov": {
+      "n": 305,
+      "fid": 0.8098
+     },
+     "C12|cov": {
+      "n": 1535,
+      "fid": 0.7544
+     },
+     "C12|nov": {
+      "n": 298,
+      "fid": 0.3221
+     },
+     "C3p|cov": {
+      "n": 348,
+      "fid": 0.4109
+     },
+     "C3p|nov": {
+      "n": 200,
+      "fid": 0.105
+     }
+    },
+    "rq2b": {
+     "gap": 0.1287,
+     "n_cells": 5,
+     "retained": 0.995,
+     "ci": [
+      0.0942,
+      0.1671
+     ]
+    }
+   },
+   "sanity_shared_matches_frozen": true
+  },
+  "Cadrille-SFT": {
+   "shared_recomputed": {
+    "n": 7093,
+    "rq2a": {
+     "covered_fid": 0.8293,
+     "covered_n": 6374,
+     "novel_fid": 0.363,
+     "novel_n": 719,
+     "gap": 0.4663,
+     "covered_holed_fid": 0.57,
+     "covered_holed_n": 1649,
+     "novel_holed_fid": 0.1301,
+     "novel_holed_n": 415
+    },
+    "rq2d": {
+     "C0|cov": {
+      "n": 4595,
+      "fid": 0.9373
+     },
+     "C0|nov": {
+      "n": 262,
+      "fid": 0.7786
+     },
+     "C12|cov": {
+      "n": 1463,
+      "fid": 0.6138
+     },
+     "C12|nov": {
+      "n": 277,
+      "fid": 0.1661
+     },
+     "C3p|cov": {
+      "n": 316,
+      "fid": 0.2563
+     },
+     "C3p|nov": {
+      "n": 180,
+      "fid": 0.0611
+     }
+    },
+    "rq2b": {
+     "gap": 0.098,
+     "n_cells": 5,
+     "retained": 0.9972,
+     "ci": [
+      0.0644,
+      0.1324
+     ]
+    }
+   },
+   "t2c_corpus": {
+    "n": 7093,
+    "rq2a": {
+     "covered_fid": 0.8294,
+     "covered_n": 6372,
+     "novel_fid": 0.3634,
+     "novel_n": 721,
+     "gap": 0.466,
+     "covered_holed_fid": 0.5704,
+     "covered_holed_n": 1648,
+     "novel_holed_fid": 0.1298,
+     "novel_holed_n": 416
+    },
+    "rq2d": {
+     "C0|cov": {
+      "n": 4594,
+      "fid": 0.9373
+     },
+     "C0|nov": {
+      "n": 263,
+      "fid": 0.7795
+     },
+     "C12|cov": {
+      "n": 1463,
+      "fid": 0.6138
+     },
+     "C12|nov": {
+      "n": 277,
+      "fid": 0.1661
+     },
+     "C3p|cov": {
+      "n": 315,
+      "fid": 0.2571
+     },
+     "C3p|nov": {
+      "n": 181,
+      "fid": 0.0608
+     }
+    },
+    "rq2b": {
+     "gap": 0.0978,
+     "n_cells": 5,
+     "retained": 0.9972,
+     "ci": [
+      0.0628,
+      0.1316
+     ]
+    }
+   },
+   "sanity_shared_matches_frozen": true
+  }
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "tercile_ncmd": [
+  6.0,
+  14.0
+ ],
+ "min_cell": 5,
+ "n_boot": 1000,
+ "seed": 20260828,
+ "models": {
+  "DeepCAD": {
+   "corpus_desc": "DeepCAD train 161,240（官方 split）",
+   "rq2b": {
+    "gap": 0.2322,
+    "n_cells": 5,
+    "retained": 0.9962,
+    "ci": [
+     0.189,
+     0.2788
+    ]
+   }
+  },
+  "SkexGen": {
+   "corpus_desc": "SkexGen 官方管线 survivors（union 116,936；split 外 uid 仅 vec 可指纹化的 189 个计入）",
+   "rq2b": {
+    "gap": 0.171,
+    "n_cells": 5,
+    "retained": 0.9913,
+    "ci": [
+     0.126,
+     0.2263
+    ]
+   }
+  },
+  "Text2CAD": {
+   "corpus_desc": "Text2CAD 官方 train 159,049（⊂ DC train，零泄漏）",
+   "rq2b": {
+    "gap": 0.1641,
+    "n_cells": 5,
+    "retained": 0.9938,
+    "ci": [
+     0.1259,
+     0.2057
+    ]
+   }
+  },
+  "CAD-Coder": {
+   "corpus_desc": "CAD-Coder：T2C train 派生（GRPO），同 text2cad",
+   "rq2b": {
+    "gap": 0.1287,
+    "n_cells": 5,
+    "retained": 0.995,
+    "ci": [
+     0.0946,
+     0.1658
+    ]
+   }
+  },
+  "Cadrille-SFT": {
+   "corpus_desc": "Cadrille-SFT 的 DeepCAD 分量 = T2C 版；CAD-Recode 1M 分量在指纹词表外（附录脚注）",
+   "rq2b": {
+    "gap": 0.0978,
+    "n_cells": 5,
+    "retained": 0.9972,
+    "ci": [
+     0.0621,
+     0.1334
+    ]
+   }
+  }
+ }
+}

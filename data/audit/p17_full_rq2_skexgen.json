@@ -1,0 +1,212 @@
+{
+ "corpus": {
+  "shared_dc_train": 24824,
+  "skx_strict(dc_train∩union)": 23836,
+  "skx_union(官方parser口径)": 23943,
+  "skx_intersection": 17861,
+  "union_uids": 116936,
+  "extras_split外": 22728,
+  "extras_指纹成功": 189
+ },
+ "tercile": [
+  6.0,
+  14.0
+ ],
+ "shared_recomputed": {
+  "n": 6439,
+  "rq2a": {
+   "covered_fid": 0.8773,
+   "covered_n": 5984,
+   "novel_fid": 0.3846,
+   "novel_n": 455,
+   "gap": 0.4927,
+   "covered_holed_fid": 0.7575,
+   "covered_holed_n": 1596,
+   "novel_holed_fid": 0.1953,
+   "novel_holed_n": 256
+  },
+  "rq2d": {
+   "C0|cov": {
+    "n": 4292,
+    "fid": 0.9345
+   },
+   "C0|nov": {
+    "n": 171,
+    "fid": 0.7135
+   },
+   "C12|cov": {
+    "n": 1403,
+    "fid": 0.784
+   },
+   "C12|nov": {
+    "n": 173,
+    "fid": 0.2254
+   },
+   "C3p|cov": {
+    "n": 289,
+    "fid": 0.481
+   },
+   "C3p|nov": {
+    "n": 111,
+    "fid": 0.1261
+   }
+  },
+  "rq2b": {
+   "gap": 0.1725,
+   "n_cells": 5,
+   "retained": 0.9912,
+   "ci": [
+    0.1277,
+    0.2279
+   ]
+  }
+ },
+ "skx_strict": {
+  "n": 6439,
+  "rq2a": {
+   "covered_fid": 0.8777,
+   "covered_n": 5979,
+   "novel_fid": 0.3848,
+   "novel_n": 460,
+   "gap": 0.4929,
+   "covered_holed_fid": 0.7586,
+   "covered_holed_n": 1591,
+   "novel_holed_fid": 0.1992,
+   "novel_holed_n": 261
+  },
+  "rq2d": {
+   "C0|cov": {
+    "n": 4292,
+    "fid": 0.9345
+   },
+   "C0|nov": {
+    "n": 171,
+    "fid": 0.7135
+   },
+   "C12|cov": {
+    "n": 1401,
+    "fid": 0.7852
+   },
+   "C12|nov": {
+    "n": 175,
+    "fid": 0.2229
+   },
+   "C3p|cov": {
+    "n": 286,
+    "fid": 0.479
+   },
+   "C3p|nov": {
+    "n": 114,
+    "fid": 0.1404
+   }
+  },
+  "rq2b": {
+   "gap": 0.171,
+   "n_cells": 5,
+   "retained": 0.9913,
+   "ci": [
+    0.1238,
+    0.2199
+   ]
+  }
+ },
+ "skx_union": {
+  "n": 6439,
+  "rq2a": {
+   "covered_fid": 0.8777,
+   "covered_n": 5979,
+   "novel_fid": 0.3848,
+   "novel_n": 460,
+   "gap": 0.4929,
+   "covered_holed_fid": 0.7586,
+   "covered_holed_n": 1591,
+   "novel_holed_fid": 0.1992,
+   "novel_holed_n": 261
+  },
+  "rq2d": {
+   "C0|cov": {
+    "n": 4292,
+    "fid": 0.9345
+   },
+   "C0|nov": {
+    "n": 171,
+    "fid": 0.7135
+   },
+   "C12|cov": {
+    "n": 1401,
+    "fid": 0.7852
+   },
+   "C12|nov": {
+    "n": 175,
+    "fid": 0.2229
+   },
+   "C3p|cov": {
+    "n": 286,
+    "fid": 0.479
+   },
+   "C3p|nov": {
+    "n": 114,
+    "fid": 0.1404
+   }
+  },
+  "rq2b": {
+   "gap": 0.171,
+   "n_cells": 5,
+   "retained": 0.9913,
+   "ci": [
+    0.1205,
+    0.2224
+   ]
+  }
+ },
+ "skx_intersection": {
+  "n": 6439,
+  "rq2a": {
+   "covered_fid": 0.8808,
+   "covered_n": 5912,
+   "novel_fid": 0.4137,
+   "novel_n": 527,
+   "gap": 0.4671,
+   "covered_holed_fid": 0.7623,
+   "covered_holed_n": 1561,
+   "novel_holed_fid": 0.2371,
+   "novel_holed_n": 291
+  },
+  "rq2d": {
+   "C0|cov": {
+    "n": 4261,
+    "fid": 0.9357
+   },
+   "C0|nov": {
+    "n": 202,
+    "fid": 0.7228
+   },
+   "C12|cov": {
+    "n": 1377,
+    "fid": 0.7908
+   },
+   "C12|nov": {
+    "n": 199,
+    "fid": 0.2513
+   },
+   "C3p|cov": {
+    "n": 274,
+    "fid": 0.4781
+   },
+   "C3p|nov": {
+    "n": 126,
+    "fid": 0.1746
+   }
+  },
+  "rq2b": {
+   "gap": 0.1415,
+   "n_cells": 5,
+   "retained": 0.9829,
+   "ci": [
+    0.0987,
+    0.1936
+   ]
+  }
+ },
+ "sanity_shared_matches_frozen": true
+}

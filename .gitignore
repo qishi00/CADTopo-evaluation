@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pkl.tmp
+external/
+rq2/results/
+rq3/rq3_conditional_on_A_v1.json
+.git/

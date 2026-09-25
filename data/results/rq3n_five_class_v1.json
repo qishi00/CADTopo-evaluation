@@ -1,0 +1,62 @@
+{
+  "text2cad": {
+    "B": {
+      "n": 300,
+      "hit": 1,
+      "partial": 0,
+      "ignore": 295,
+      "wrong_dir": 0,
+      "other": 0,
+      "invalid": 4
+    },
+    "D": {
+      "n": 300,
+      "hit": 1,
+      "partial": 0,
+      "ignore": 298,
+      "wrong_dir": 1,
+      "other": 0,
+      "invalid": 0
+    }
+  },
+  "cadcoder": {
+    "B": {
+      "n": 297,
+      "hit": 0,
+      "partial": 0,
+      "ignore": 297,
+      "wrong_dir": 0,
+      "other": 0,
+      "invalid": 0
+    },
+    "D": {
+      "n": 300,
+      "hit": 2,
+      "partial": 0,
+      "ignore": 298,
+      "wrong_dir": 0,
+      "other": 0,
+      "invalid": 0
+    }
+  },
+  "cadrille": {
+    "B": {
+      "n": 297,
+      "hit": 5,
+      "partial": 0,
+      "ignore": 289,
+      "wrong_dir": 0,
+      "other": 0,
+      "invalid": 3
+    },
+    "D": {
+      "n": 300,
+      "hit": 5,
+      "partial": 0,
+      "ignore": 295,
+      "wrong_dir": 0,
+      "other": 0,
+      "invalid": 0
+    }
+  }
+}
