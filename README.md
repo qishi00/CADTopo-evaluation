@@ -1,6 +1,6 @@
 # CAD-TopoBench: Benchmark Code and Data
 
-Code and experimental data for **CAD-TopoBench**, a topology-oriented benchmark for CAD generative models (ICLR 2027 submission, double-blind).
+Code and experimental data for **CAD-TopoBench**, a topology-oriented benchmark for CAD generative models.
 
 The paper evaluates five CAD generators along the three parts of Section 4: **topological fidelity under standard generation** (Table 1, Figure 2), **fidelity under construction-pattern novelty** (Figure 3), and **topology-directed intervention** (Section 4.3, Figure 4). This repository contains the reference topology extractor, the structural-fingerprint coverage pipeline, the intervention prompts and aggregation code, and all precomputed per-sample labels required to reproduce the paper's tables.
 
