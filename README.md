@@ -35,6 +35,10 @@ docs/REPRODUCE.md     step-by-step reproduction guide
 ```bash
 pip install -r requirements.txt
 
+# One command: verify that every headline number reproduces from the
+# shipped data (exits 0 only if all checks pass):
+python run_all_checks.py
+
 # Label your own generated STEP files:
 python evaluation/label_steps.py /path/to/steps
 
