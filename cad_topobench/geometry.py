@@ -1,6 +1,6 @@
 """Geometry backend for CAD-TopoBench.
 
-DeepCAD command vector (52x17, quantized int) -> B-Rep solid -> point cloud -> Chamfer Distance.
+DeepCAD command vector (60x17, quantized int) -> B-Rep solid -> point cloud -> Chamfer Distance.
 
 Replicates the semantics of DeepCAD's cadlib.visualize.create_CAD (pythonOCC)
 using cadquery 2.8 (OCP backend), including:

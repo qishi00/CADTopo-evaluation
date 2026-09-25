@@ -3,7 +3,7 @@
 THE single canonical chain for every topology label in the benchmark
 (GT, generated, top-k candidates — no exceptions):
 
-    DeepCAD quantized vec (52x17 int)
+    DeepCAD quantized vec (60x17 int)
       -> cadquery solid           (cad_topobench.geometry.vec_to_solid)
       -> tessellate (surface mesh)
       -> trimesh weld (merge duplicate vertices across faces)

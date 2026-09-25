@@ -52,7 +52,9 @@ terciles, L ≤ 6 / 7–14 / ≥ 15), reweighted to the novel group's cell distr
 python rq3/aggregate_rq3n.py
 ```
 
-Recomputes the five-class intervention outcome (hit / partial / ignore / wrong_dir / other / invalid) for the 600 exact-baseline bases (300 add-hole, 300 remove-hole) of the primary protocol, and asserts equality with the frozen result. The per-sample labels are in `data/labels/rq3n/`; the task pack (prompts, target signatures, selection seed) is `data/prompts/rq3n_tasks_server.jsonl`.
+Recomputes the five-class intervention outcome (hit / partial / ignore / wrong_dir / other / invalid) for the 600 exact-baseline bases (300 add-hole, 300 remove-hole) of the primary protocol, and asserts equality with the frozen result. The per-sample labels are in `data/labels/rq3n/`; the task pack (prompts, target signatures, selection seed) is `data/prompts/rq3n_tasks_server.jsonl`. In this pack the condition letter encodes the requested change: `B` = add one through-hole (bases with reference β = (1,0,0)), `D` = remove all through-holes (bases with reference β = (1,1,0)). Both conditions draw their instruction suffix from the same fixed three-phrasing pool per condition (Appendix C), assigned uniformly at random.
+
+Note on protocols: the strict-hit rates of Sec. 4.3 come from this RQ3-N pack (600 bases, three text-conditioned models conditioned on exact baseline fidelity). The topology-neutral distractor control reported in the same section is the v2 protocol below.
 
 ## 5. Distractor control (Sec. 4.3)
 

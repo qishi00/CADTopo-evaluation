@@ -2,7 +2,16 @@
 
 Code and experimental data for **CAD-TopoBench**, a topology-oriented benchmark for CAD generative models (ICLR 2027 submission, double-blind).
 
-CAD-TopoBench evaluates generative CAD models along four dimensions that go beyond geometry: **topology fidelity** (exact Betti-signature match against the reference), **geometry–topology consistency**, **topology diversity**, and **controllability under topology-directed interventions**. This repository contains the reference topology extractor, the structural-fingerprint coverage pipeline, the counterfactual intervention prompts and aggregation code, and all precomputed per-sample labels required to reproduce the paper's tables.
+The paper evaluates five CAD generators along the three parts of Section 4: **topological fidelity under standard generation** (Table 1, Figure 2), **fidelity under construction-pattern novelty** (Figure 3), and **topology-directed intervention** (Section 4.3, Figure 4). This repository contains the reference topology extractor, the structural-fingerprint coverage pipeline, the intervention prompts and aggregation code, and all precomputed per-sample labels required to reproduce the paper's tables.
+
+## Ground-truth references
+
+Two references are shipped under `data/labels/`:
+
+- `gt_true_labels_v2_official.jsonl` — the **primary reference** for Table 1, Figure 2, and Figure 3. It is built from the unquantized CAD JSON sequences through the official DeepCAD `create_CAD` builder.
+- `gt_quant_labels_v2_official.jsonl` — the reference decoded from the official 8-bit quantized vectors. It is used **only** in Appendix F, which compares the two references to quantify vectorization-induced signature changes.
+
+The DeepCAD generation side (`deepcad_gen_labels_v2_official.jsonl`) is likewise decoded from the official quantized vectors, so Appendix F isolates the effect of quantization itself.
 
 ## Repository layout
 
