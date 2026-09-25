@@ -1,21 +1,25 @@
 # -*- coding: utf-8 -*-
-"""RQ2 标准化差距（Table 7）：控制拓扑复杂度 × 命令长度后的 covered-novel 差距。
+"""RQ2 standardized gap (Table 7): the covered-novel fidelity gap after
+controlling for topological complexity x command-sequence length.
 
-方法（与论文 §5.2 一致）：
-  cell = C_topo层(3) × 命令长度tercile(3) 共 9 格；
-  仅保留 covered 和 novel 两侧样本数都 >= MIN_CELL(=5) 的格；
-  权重 = novel 组的 cell 分布（标准化到 novel 的复杂度分布上）；
-  置信区间 = 样本级 bootstrap 1000 次（seed=20260828）。
+Method (identical to Sec. 5.2 of the paper):
+  cell = 3 C_topo layers x 3 command-length terciles = 9 cells;
+  only cells with >= MIN_CELL(=5) samples on BOTH the covered and the novel
+  side are kept;
+  weights = the novel group's cell distribution (the covered side is
+  standardized onto the novel complexity distribution);
+  confidence intervals = sample-level bootstrap, 1000 resamples
+  (seed=20260828).
 
-每个模型使用自己的训练语料覆盖（coverage/<model>.json）。
+Each model uses its own training-corpus coverage (coverage/<model>.json).
 
-用法：
-    python standardize_gap.py
-输出：
-    code_final/RQ2/results/rq2_standardized_gap.json
-内置 sanity 断言（不一致直接 AssertionError）：
-  gap / n_cells / retained 必须与冻结结果【精确相等】；
-  bootstrap CI 因随机序列复现路径不同，允许 ±0.01 容差。
+Usage:
+    python rq2/standardize_gap.py
+Output:
+    rq2/results/rq2_standardized_gap.json
+Built-in sanity asserts (viations raise AssertionError):
+  gap / n_cells / retained must match the frozen result EXACTLY;
+  bootstrap CIs may deviate by up to 0.01 across replay paths.
 """
 import io
 import json
@@ -60,7 +64,7 @@ FROZEN = {
     "Cadrille-SFT": P17_T2C["Cadrille-SFT"]["t2c_corpus"]["rq2b"],
 }
 
-# ---- 指纹/命令数缓存（P8 冻结产物：测试集 tid -> (fingerprint, ncmd)） ----
+# ---- fingerprint / command-count cache (frozen artifact: test tid -> (fingerprint, ncmd)) ----
 st = pickle.load(io.open(AUDIT / "_p8_fp_cache.pkl", "rb"))
 ncmd = {tid.split("/")[-1]: n for tid, (fp, n) in st["test"].items()}
 allnc = sorted(ncmd.values())
@@ -85,7 +89,7 @@ def load_labels(path):
 
 
 def mgap(rows):
-    """标准化 matched gap：novel 分布加权、MIN_CELL 过滤。"""
+    """Standardized matched gap: novel-distribution weighting, MIN_CELL filter."""
     agg = {}
     for r in rows:
         t = 0 if r["ncmd"] <= TERC[0] else (1 if r["ncmd"] <= TERC[1] else 2)
@@ -146,7 +150,7 @@ for model, (cov_file, lab_file) in MODELS.items():
             "ci": [round(float(np.percentile(boots, 2.5)), 4),
                    round(float(np.percentile(boots, 97.5)), 4)]}
 
-    # ---- sanity 断言 ----
+    # ---- sanity asserts ----
     fz = FROZEN[model]
     for k in ("gap", "n_cells", "retained"):
         assert rq2b[k] == fz[k], f"{model} rq2b[{k}]: {rq2b[k]} != frozen {fz[k]}"
@@ -155,11 +159,11 @@ for model, (cov_file, lab_file) in MODELS.items():
             f"{model} rq2b CI: {rq2b['ci']} vs frozen {fz['ci']} (tol {CI_TOL})"
 
     result["models"][model] = {"corpus_desc": covd["corpus_desc"], "rq2b": rq2b}
-    print(f"[OK] {model:<12} sanity 通过 | T7 gap={rq2b['gap']} "
+    print(f"[OK] {model:<12} sanity passed | T7 gap={rq2b['gap']} "
           f"CI={rq2b['ci']} (frozen {fz['ci']}) retained={rq2b['retained']} "
           f"cells={rq2b['n_cells']}")
 
 json.dump(result, io.open(OUT / "rq2_standardized_gap.json", "w", encoding="utf-8"),
           ensure_ascii=False, indent=1)
 print("\nsaved ->", OUT / "rq2_standardized_gap.json")
-print("全部模型 sanity 断言通过（gap/n_cells/retained 精确一致，CI 在容差内）。")
+print("All models passed sanity asserts (gap/n_cells/retained exact, CI within tolerance).")

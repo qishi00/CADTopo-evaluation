@@ -1,5 +1,5 @@
 {
- "note": "RQ2-B/D v2@GT_true_v2(官方builder): C_topo 分层(C0/C12/C3p)；DeepCAD 生成侧官方 vec2CADsolid 重解码",
+ "note": "RQ2-B/D v2 @ GT_true_v2 (official builder): C_topo strata (C0/C12/C3p); DeepCAD generation side re-decoded with the official vec2CADsolid",
  "tercile": [
   6.0,
   14.0

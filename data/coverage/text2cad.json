@@ -1,6 +1,6 @@
 {
  "model": "text2cad",
- "corpus_desc": "Text2CAD 官方 train 159,049（⊂ DC train，零泄漏）",
+ "corpus_desc": "Text2CAD official train 159,049 (subset of DC train, zero leakage)",
  "n_corpus_seqs": 159049,
  "n_corpus_fps": 24461,
  "n_covered": 7015,

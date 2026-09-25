@@ -1,6 +1,6 @@
 {
  "model": "skexgen",
- "corpus_desc": "SkexGen 官方管线 survivors（union 116,936；split 外 uid 仅 vec 可指纹化的 189 个计入）",
+ "corpus_desc": "SkexGen official-pipeline survivors (union 116,936; of the uids outside the split, only the 189 fingerprintable from vectors are counted)",
  "n_corpus_seqs": 116936,
  "n_corpus_fps": 23943,
  "n_covered": 7005,

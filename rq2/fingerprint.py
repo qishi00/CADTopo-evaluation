@@ -1,22 +1,27 @@
 # -*- coding: utf-8 -*-
-"""coverage_flags_unified_v3.py —— 统一结构指纹覆盖标记 v3（2026-08-23）
+"""fingerprint.py — unified structural-fingerprint coverage flags, v3.
 
-在 v2（纯命令类型列）基础上升级：EXT 行附加布尔操作类型（col15，
-0=NewBody 1=Join 2=Cut 3=Intersect）。理由：布尔操作是离散结构属性，
-直接决定拓扑（同一个圆拉伸成凸台 vs 切成孔），不是几何参数。
+Upgrade over v2 (command-type column only): EXT rows additionally carry the
+boolean operation type (column 15; 0=NewBody 1=Join 2=Cut 3=Intersect).
+Rationale: the boolean operation is a discrete structural attribute that
+directly determines topology (the same circle extruded as a boss vs. cut as
+a hole), not a geometric parameter.
 
-  指纹 = (命令数, blake2b(每行 [col0命令类型, EXT操作/-1] 的 int64 序列))
-  EOS(3) 行剥除，其余参数（坐标/尺寸/距离）全部丢弃。
-  训练指纹库 = DeepCAD train split 全集 161,240（T2C train 159,049 为真子集，
-               0 交叉污染；DC 独有 2191 未进入 T2C 任何 split）。
-  测试标记 = DeepCAD test split 8052（T2C test 8046 为真子集）。
+  fingerprint = (n_commands, blake2b over the int64 sequence of per-row
+                 [command type (col 0), EXT operation / -1])
+  EOS (3) rows are stripped; all remaining parameters (coordinates, sizes,
+  distances) are discarded.
+  Training fingerprint library = full DeepCAD train split, 161,240 sequences
+      (T2C train 159,049 is a strict subset: zero cross-contamination; the
+      2,191 DC-only sequences enter no T2C split).
+  Test flags = DeepCAD test split, 8,052 (T2C test 8,046 is a subset).
 
-数据源：<external>/cad_vec/{shard}/{fid}.h5 的 'vec'。
+Data source: the 'vec' dataset of <external>/cad_vec/{shard}/{fid}.h5.
 
-输出：results/coverage_flags_unified_v3.json
-缓存：results/_unified_fp_cache_v3.pkl（断点续跑，与 v2 缓存不共用）
+Output: data/coverage/coverage_flags_unified_v3.json
+Cache:  data/coverage/_unified_fp_cache_v3.pkl (resumable; not shared with v2)
 
-运行：python rq2/fingerprint.py
+Run:  python rq2/fingerprint.py
 """
 import hashlib
 import json
@@ -53,7 +58,7 @@ def keys_of(tid):
         with h5py.File(os.path.join(CADVEC, tid + ".h5"), "r") as f:
             a = strip_eos(f["vec"][:])
         full = (a.shape, hashlib.blake2b(a.tobytes(), digest_size=16).hexdigest())
-        # 结构列: [命令类型, EXT布尔操作/-1]
+        # structural columns: [command type, EXT boolean op / -1]
         sig = np.zeros((a.shape[0], 2), dtype=np.int64)
         sig[:, 0] = a[:, 0]
         is_ext = a[:, 0] == EXT_IDX
@@ -73,7 +78,7 @@ def main():
     state = {"done": 0, "full": set(), "struct": set(), "fail": 0}
     if os.path.exists(CACHE):
         state = pickle.load(open(CACHE, "rb"))
-        print(f"续跑: train done={state['done']}", flush=True)
+        print(f"resume: train done={state['done']}", flush=True)
 
     todo = train_ids[state["done"]:]
     with ProcessPoolExecutor(max_workers=WORKERS) as ex:
@@ -89,7 +94,7 @@ def main():
                 print(f"  train {state['done']}/{len(train_ids)} "
                       f"struct={len(state['struct'])}", flush=True)
     pickle.dump(state, open(CACHE, "wb"))
-    print(f"train 完成: {state['done']} (失败 {state['fail']}) "
+    print(f"train done: {state['done']} (failed {state['fail']}) "
           f"distinct struct={len(state['struct'])}", flush=True)
 
     flags, miss = {}, 0
@@ -105,8 +110,9 @@ def main():
     n_cov = sum(1 for v in flags.values() if v["gt_struct_in_train"])
     n_ok = sum(1 for v in flags.values() if v["gt_struct_in_train"] is not None)
     json.dump(dict(
-        note="unified v3 2026-08-23: 结构指纹=(命令类型序列+EXT布尔操作, "
-             "几何参数全丢, EOS剥除); 训练库=DC train 161240 (T2C train 真子集)",
+        note="unified v3: structural fingerprint = (command-type sequence + EXT boolean op, "
+             "all geometric parameters dropped, EOS stripped); "
+             "training library = DC train 161240 (T2C train is a subset)",
         n_train=state["done"], n_train_struct=len(state["struct"]),
         flags=flags),
         open(OUT, "w", encoding="utf-8"), ensure_ascii=False)

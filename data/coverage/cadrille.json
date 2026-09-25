@@ -1,6 +1,6 @@
 {
  "model": "cadrille",
- "corpus_desc": "Cadrille-SFT 的 DeepCAD 分量 = T2C 版；CAD-Recode 1M 分量在指纹词表外（附录脚注）",
+ "corpus_desc": "Cadrille-SFT DeepCAD component = T2C version; the CAD-Recode 1M component is outside the fingerprint vocabulary (appendix footnote)",
  "n_corpus_seqs": 159049,
  "n_corpus_fps": 24461,
  "n_covered": 7015,

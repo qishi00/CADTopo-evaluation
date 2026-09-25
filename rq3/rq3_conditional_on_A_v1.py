@@ -1,16 +1,22 @@
 # -*- coding: utf-8 -*-
-"""rq3_conditional_on_A_v1.py —— RQ3 主表唯一正典（2026-09-19 由 experiment_audit 移入 pipeline）。
+"""rq3_conditional_on_A_v1.py — intervention aggregation for the v2 protocol
+(source of the topology-neutral distractor control in Sec. 4.3).
 
-口径（与论文 Figure 4 / RQ3 主表完全一致，已验证 658/750/638）：
-在 931 个双链一致 base（prompt A 池 ∩ GT v1==GT v2）上，进一步只保留该模型
-条件 A 生成 valid 且全签名匹配 GT_true v2 的 base，再测 B/C/D。即 controlled-for-fidelity。
+Protocol (matches the paper's RQ3 distractor numbers, verified 658/750/638):
+on the 931 double-consistent bases (prompt-A pool intersected with
+GT v1 == GT v2), keep only bases whose Condition-A generation is valid and
+exactly matches GT_true v2 for the model under test, then evaluate B/C/D.
+That is, conditioned-on-fidelity.
 
-字母映射：内部 cond B=加孔、C=干扰、D=去孔 → 论文 B=加孔、C=去孔、D=干扰。
-输出与论文一致的前提是 labels 用现行正典文件（results_archive / experiments/runs/cadrille，
-其中已含 2026-09-16 CC 同码噪声重标）。用旧 FINAL_FREEZE 副本会差 1 个样本（CC 去孔 hit 1.5% vs 1.1%）。
+Letter mapping: internal cond B=add hole, C=distractor, D=remove hole ->
+paper B=add hole, C=remove hole, D=distractor.
+The output matches the paper only when the labels are the current canonical
+files (which include the 2026-09-16 CAD-Coder relabeling under identical
+code noise). An older frozen copy differs by one sample (CC remove-hole hit
+1.5% vs 1.1%).
 
-运行：python python rq3/rq3_conditional_on_A_v1.py
-产出：本目录 rq3_conditional_on_A_v1.json
+Run:  python rq3/rq3_conditional_on_A_v1.py
+Output: rq3/rq3_conditional_on_A_v1.json next to this script.
 """
 import json, io, random, sys
 from pathlib import Path
@@ -79,7 +85,7 @@ def main():
             r = json.loads(l)
             labels[(r[key], r["cond"])] = r
 
-        # 该模型 A 正确的 base
+        # bases whose Condition-A generation is correct for this model
         a_ok = {u for u in bases
                 if (u, "A") in labels and labels[(u, "A")]["ok"]
                 and labels[(u, "A")]["betti"] == gt2[u]}
@@ -109,7 +115,7 @@ def main():
                     d[b + "_ci"] = boot_ci(xs)
                 rec[tname] = d
 
-        # Distractor：A 正确子集上的稳定性
+        # distractor: stability on the A-correct subset
         stable = []
         for u in sorted(a_ok):
             r, ra = labels.get((u, "C")), labels.get((u, "A"))
@@ -125,7 +131,7 @@ def main():
 
     for m in SETS:
         r = out[m]
-        print(f"\n===== {m} =====  A正确 base: {r['n_bases_A_correct']}/{r['n_bases_consistent']}")
+        print(f"\n===== {m} =====  A-correct bases: {r['n_bases_A_correct']}/{r['n_bases_consistent']}")
         for tr in ["B", "C_merged", "C_clean", "C_conflict", "D_distractor"]:
             d = r[tr]
             if tr == "D_distractor":

@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
-"""label_steps.py — 给一个目录下的所有 .step 文件提取 Betti 签名（cad_topobench 打标入口）
+"""label_steps.py — extract the Betti signature of every .step file in a
+directory (entry point for cad_topobench labeling).
 
-用法:
+Usage:
   python evaluation/label_steps.py <step_dir> [--out labels.jsonl] [--budget-sec 600]
 
-输入: <step_dir> 下所有 *.step（递归）
-输出: 每行 {"file", "ok", "betti", "error", "volume", "n_tris"}
-      ok=False 表示 STEP 无法导入或不水密（对应论文中的 invalid / F0 类失败）
-断点续跑: 已写入的 file 自动跳过。
+Input:  all *.step files under <step_dir> (recursive)
+Output: one JSON object per line: {"file", "ok", "betti", "error", "volume",
+        "n_tris"}.  ok=false means the STEP cannot be imported or is not
+        watertight (the invalid / F0 failure class in the paper).
+Resume: already-written files are skipped.
 """
 import argparse
 import json

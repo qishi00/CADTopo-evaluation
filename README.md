@@ -48,13 +48,11 @@ python rq3/aggregate_rq3n.py
 python rq3/rq3_conditional_on_A_v1.py
 ```
 
-Both aggregation scripts carry built-in sanity assertions against the frozen
-results in `data/`; a successful run means every number matches the paper.
+Both aggregation scripts carry built-in sanity assertions against the frozen results in `data/`; a successful run means every number matches the paper.
 
 ## External data (not shipped)
 
-The benchmark builds on public datasets and model checkpoints; download them
-into `external/`:
+The benchmark builds on public datasets and model checkpoints; download them into `external/`:
 
 | Path | Source |
 |---|---|

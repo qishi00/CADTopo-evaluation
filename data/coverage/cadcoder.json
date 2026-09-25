@@ -1,6 +1,6 @@
 {
  "model": "cadcoder",
- "corpus_desc": "CAD-Coder：T2C train 派生（GRPO），同 text2cad",
+ "corpus_desc": "CAD-Coder: derived from the T2C train split (GRPO), same as Text2CAD",
  "n_corpus_seqs": 159049,
  "n_corpus_fps": 24461,
  "n_covered": 7015,

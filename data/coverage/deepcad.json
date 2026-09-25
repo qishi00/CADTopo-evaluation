@@ -1,6 +1,6 @@
 {
  "model": "deepcad",
- "corpus_desc": "DeepCAD train 161,240（官方 split）",
+ "corpus_desc": "DeepCAD train 161,240 (official split)",
  "n_corpus_seqs": 161240,
  "n_corpus_fps": 24824,
  "n_covered": 7019,

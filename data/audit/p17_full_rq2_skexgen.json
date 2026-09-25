@@ -2,11 +2,11 @@
  "corpus": {
   "shared_dc_train": 24824,
   "skx_strict(dc_train∩union)": 23836,
-  "skx_union(官方parser口径)": 23943,
+  "skx_union(official_parser)": 23943,
   "skx_intersection": 17861,
   "union_uids": 116936,
-  "extras_split外": 22728,
-  "extras_指纹成功": 189
+  "extras_outside_split": 22728,
+  "extras_fingerprinted": 189
  },
  "tercile": [
   6.0,

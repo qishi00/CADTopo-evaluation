@@ -8,7 +8,7 @@ decoded greedily.  This script recomputes the five-class counts
 (hit / partial / ignore / wrong_dir / other / invalid) from the shipped
 per-sample labels and asserts equality with the frozen result.
 
-用法:  python rq3/aggregate_rq3n.py
+Usage:  python rq3/aggregate_rq3n.py
 """
 import json
 import sys
@@ -60,7 +60,7 @@ def main():
     assert out == frozen, (
         "RQ3-N mismatch:\n" + json.dumps({"recomputed": out, "frozen": frozen},
                                          indent=1))
-    print("sanity 通过: RQ3-N five-class counts exactly match the frozen result")
+    print("sanity OK: RQ3-N five-class counts exactly match the frozen result")
     for m in MODELS:
         for cond in ("B", "D"):
             r = out[m][cond]

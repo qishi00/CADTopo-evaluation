@@ -8,7 +8,7 @@
  "seed": 20260828,
  "models": {
   "DeepCAD": {
-   "corpus_desc": "DeepCAD train 161,240（官方 split）",
+   "corpus_desc": "DeepCAD train 161,240 (official split)",
    "rq2b": {
     "gap": 0.2322,
     "n_cells": 5,
@@ -20,7 +20,7 @@
    }
   },
   "SkexGen": {
-   "corpus_desc": "SkexGen 官方管线 survivors（union 116,936；split 外 uid 仅 vec 可指纹化的 189 个计入）",
+   "corpus_desc": "SkexGen official-pipeline survivors (union 116,936; of the uids outside the split, only the 189 fingerprintable from vectors are counted)",
    "rq2b": {
     "gap": 0.171,
     "n_cells": 5,
@@ -32,7 +32,7 @@
    }
   },
   "Text2CAD": {
-   "corpus_desc": "Text2CAD 官方 train 159,049（⊂ DC train，零泄漏）",
+   "corpus_desc": "Text2CAD official train 159,049 (subset of DC train, zero leakage)",
    "rq2b": {
     "gap": 0.1641,
     "n_cells": 5,
@@ -44,7 +44,7 @@
    }
   },
   "CAD-Coder": {
-   "corpus_desc": "CAD-Coder：T2C train 派生（GRPO），同 text2cad",
+   "corpus_desc": "CAD-Coder: derived from the T2C train split (GRPO), same as Text2CAD",
    "rq2b": {
     "gap": 0.1287,
     "n_cells": 5,
@@ -56,7 +56,7 @@
    }
   },
   "Cadrille-SFT": {
-   "corpus_desc": "Cadrille-SFT 的 DeepCAD 分量 = T2C 版；CAD-Recode 1M 分量在指纹词表外（附录脚注）",
+   "corpus_desc": "Cadrille-SFT DeepCAD component = T2C version; the CAD-Recode 1M component is outside the fingerprint vocabulary (appendix footnote)",
    "rq2b": {
     "gap": 0.0978,
     "n_cells": 5,
