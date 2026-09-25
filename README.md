@@ -9,7 +9,7 @@ CAD-TopoBench evaluates generative CAD models along four dimensions that go beyo
 ```
 cad_topobench/        Core package
   reference.py          solid_betti(): STEP -> watertight Betti signature (reference v1.0)
-  topology.py, geometry.py, metrics.py, kendall.py, pareto.py, entropy.py, bootstrap.py
+  geometry.py           vec -> solid -> point cloud -> Chamfer Distance (needs external/DeepCAD)
   paths.py              all locations resolve via CAD_TOPOBENCH_ROOT (default: repo root)
 evaluation/
   label_steps.py        CLI: label every .step in a directory with its Betti signature
