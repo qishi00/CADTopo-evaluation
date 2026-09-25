@@ -21,6 +21,14 @@ python evaluation/label_steps.py /path/to/generated/steps --out my_labels.jsonl
 
 Each output row carries the watertight Betti signature `betti = (β0, β1, β2)` plus validity flags; `ok=false` marks invalid solids (the F0 class in the paper).
 
+To verify that the labeling pipeline reproduces the paper's per-sample labels from raw STEP files:
+
+```bash
+python check_labeling.py
+```
+
+This re-labels the 46 stratified sample STEP files in `examples/steps_skexgen_sample/` (covering every Betti-signature bucket: no-hole, through-holes, cavities, multi-component solids, and invalid cases) and asserts exact agreement with `data/labels/skexgen_labels_v1.jsonl`. `run_all_checks.py` includes this as its first check.
+
 ## 2. RQ2 — complexity-standardized covered–novel gap (Table 7)
 
 ```bash

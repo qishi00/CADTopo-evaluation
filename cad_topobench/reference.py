@@ -30,8 +30,6 @@ import numpy as np
 import trimesh
 import gudhi
 
-from .geometry import vec_to_solid
-
 REFERENCE_VERSION = "1.0"
 TESSELLATION_TOL = 1e-3
 
@@ -131,9 +129,10 @@ def solid_betti(solid, tol=TESSELLATION_TOL):
 def vec_betti(vec, tol=TESSELLATION_TOL):
     """DeepCAD quantized vec -> solid Betti numbers via the reference chain.
 
-    Same return schema as solid_betti; error='build_failed' when the
-    vector cannot be built into any solid.
+    Requires the DeepCAD repo at external/DeepCAD (provides cadlib); the
+    import is deferred so that STEP labeling (solid_betti) does not need it.
     """
+    from .geometry import vec_to_solid
     solid = vec_to_solid(np.asarray(vec))
     if solid is None:
         return dict(ok=False, betti=None, surf_betti=None, watertight=None,
