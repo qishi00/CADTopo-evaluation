@@ -22,6 +22,11 @@ CHECKS = [
      "check_labeling.py",
      "the topology labeling pipeline reproduces the shipped per-sample "
      "ok / betti / error labels from raw STEP files"),
+    ("RQ1  Table 1 + Fig 2(a,b) + Fig 3(a,b) + Tables 6-7",
+     "rq1/aggregate_rq1.py",
+     "invalid rate, per-component accuracy, signature fidelity, error "
+     "directions, covered-novel gaps, and the Euler-characteristic appendix "
+     "tables all match the frozen paper numbers"),
     ("RQ2  Fig 3(c)  standardized covered-novel gap",
      "rq2/standardize_gap.py",
      "the five per-model standardized gaps + 95% CIs match the frozen numbers"),

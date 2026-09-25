@@ -13,6 +13,8 @@ cad_topobench/        Core package
   paths.py              all locations resolve via CAD_TOPOBENCH_ROOT (default: repo root)
 evaluation/
   label_steps.py        CLI: label every .step in a directory with its Betti signature
+rq1/
+  aggregate_rq1.py               Table 1, Figure 2(a,b), Figure 3(a,b), appendix Tables 6-7, with sanity asserts
 rq2/
   fingerprint.py                 structural fingerprint over the DeepCAD command vocabulary
   build_model_specific_coverage.py   model-specific covered/novel split (union of training branches)
@@ -22,10 +24,10 @@ rq3/
   rq3_conditional_on_A_v1.py         intervention aggregation conditioned on exact baseline fidelity
 data/
   labels/               per-sample Betti labels for all five models + GT references (jsonl)
-  coverage/             model-specific coverage splits (covered/novel uid lists)
+  coverage/             coverage splits (model-specific covered/novel lists + GT structural flags)
   prompts/              counterfactual prompt sets
   audit/                frozen intermediate artifacts (fingerprints, per-model RQ2b JSONs)
-  results/              frozen headline results (Figure 3(c) gap, RQ3 table, Appendix F pairs)
+  results/              frozen headline results (RQ1 paper numbers, Figure 3(c) gap, RQ3 table, Appendix F pairs)
 external/             public datasets, NOT shipped (see "External data" below)
 docs/REPRODUCE.md     step-by-step reproduction guide
 ```
