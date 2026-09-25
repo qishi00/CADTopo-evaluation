@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""RQ2 standardized gap (Table 7): the covered-novel fidelity gap after
+"""RQ2 standardized gap (Figure 3(c)): the covered-novel fidelity gap after
 controlling for topological complexity x command-sequence length.
 
 Method (identical to Sec. 5.2 of the paper):
@@ -159,7 +159,7 @@ for model, (cov_file, lab_file) in MODELS.items():
             f"{model} rq2b CI: {rq2b['ci']} vs frozen {fz['ci']} (tol {CI_TOL})"
 
     result["models"][model] = {"corpus_desc": covd["corpus_desc"], "rq2b": rq2b}
-    print(f"[OK] {model:<12} sanity passed | T7 gap={rq2b['gap']} "
+    print(f"[OK] {model:<12} sanity passed | Fig3c gap={rq2b['gap']} "
           f"CI={rq2b['ci']} (frozen {fz['ci']}) retained={rq2b['retained']} "
           f"cells={rq2b['n_cells']}")
 

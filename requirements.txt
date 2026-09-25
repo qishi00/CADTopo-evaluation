@@ -1,6 +1,11 @@
-numpy>=1.24,<2.0
+# CAD-TopoBench runtime dependencies.
+# Pinned to the versions used to produce the paper's numbers (verified via
+# run_all_checks.py with this exact set).
+numpy>=2.0
 scipy
 trimesh
 h5py
 tqdm
-cadquery==2.5.2
+gudhi
+cadquery==2.8.0
+torch

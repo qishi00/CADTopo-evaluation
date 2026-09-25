@@ -22,7 +22,7 @@ CHECKS = [
      "check_labeling.py",
      "the topology labeling pipeline reproduces the shipped per-sample "
      "ok / betti / error labels from raw STEP files"),
-    ("RQ2  Table 7  standardized covered-novel gap",
+    ("RQ2  Fig 3(c)  standardized covered-novel gap",
      "rq2/standardize_gap.py",
      "the five per-model standardized gaps + 95% CIs match the frozen numbers"),
     ("RQ3-N  intervention five-class counts (Sec. 4.3)",

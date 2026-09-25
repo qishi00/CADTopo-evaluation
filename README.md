@@ -16,7 +16,7 @@ evaluation/
 rq2/
   fingerprint.py                 structural fingerprint over the DeepCAD command vocabulary
   build_model_specific_coverage.py   model-specific covered/novel split (union of training branches)
-  standardize_gap.py             complexity-standardized covered-novel gap (Table 7), with sanity asserts
+  standardize_gap.py             complexity-standardized covered-novel gap (Figure 3(c)), with sanity asserts
 rq3/
   t4c_counterfactual_prompts_v2.py   counterfactual prompt construction (add-hole / remove-hole / distractor)
   rq3_conditional_on_A_v1.py         intervention aggregation conditioned on exact baseline fidelity
@@ -25,7 +25,7 @@ data/
   coverage/             model-specific coverage splits (covered/novel uid lists)
   prompts/              counterfactual prompt sets
   audit/                frozen intermediate artifacts (fingerprints, per-model RQ2b JSONs)
-  results/              frozen headline results (Table 7 gap, RQ3 table, Appendix F pairs)
+  results/              frozen headline results (Figure 3(c) gap, RQ3 table, Appendix F pairs)
 external/             public datasets, NOT shipped (see "External data" below)
 docs/REPRODUCE.md     step-by-step reproduction guide
 ```
@@ -42,7 +42,7 @@ python run_all_checks.py
 # Label your own generated STEP files:
 python evaluation/label_steps.py /path/to/steps
 
-# Reproduce Table 7 (complexity-standardized covered-novel gap):
+# Reproduce Figure 3(c) (complexity-standardized covered-novel gap):
 python rq2/standardize_gap.py
 
 # Reproduce the RQ3-N intervention table (Sec. 4.3 strict-hit rates):

@@ -19,20 +19,20 @@ Corpora (all verified):
               (includes 22,728 uids outside the official split, of which only
               189 have a vectorization usable for fingerprinting)
 
-Run:  python rq2/build_model_specific_coverage.py
+Run (requires the external data under external/, see README.md):
+  python rq2/build_model_specific_coverage.py
+
+After rebuilding, every model file is checked against the version already
+shipped in data/coverage (covered/novel uid lists must match exactly); the
+script exits non-zero on any mismatch.
 """
+import gzip
 import hashlib
 import io
 import json
 import os
-import pickle
-from concurrent.futures import ProcessPoolExecutor
-from pathlib import Path
-
-import h5py
-import numpy as np
-
 import sys
+from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
 import h5py
@@ -43,7 +43,7 @@ from cad_topobench.paths import EXTERNAL, DATA   # noqa: E402
 
 RES = DATA
 AUDIT = DATA / "audit"
-OUT = Path(__file__).parent / "coverage"
+OUT = DATA / "coverage"
 EXT_IDX, EOS_IDX = 5, 3
 CADVEC = str(EXTERNAL / "cad_vec")
 
@@ -104,8 +104,18 @@ def main():
                      "uids": skx_union},
     }
 
-    test_fp = {tid.split("/")[-1]: fp for tid, (fp, n) in st["test"].items()}
+    test_fp = {tid.split("/")[-1]: (v[0], v[1])
+               for tid, v in json.load(
+                   io.open(AUDIT / "test_fingerprint_ncmd_v1.json", encoding="utf-8")).items()}
 
+    # frozen copies (the files currently shipped) for the post-build self-check
+    frozen = {}
+    for model in corpora:
+        p = OUT / f"{model}.json"
+        if p.exists():
+            frozen[model] = json.load(io.open(p, encoding="utf-8"))
+
+    n_mismatch = 0
     for model, c in corpora.items():
         fps = {train_fp[u] for u in c["uids"] if u in train_fp}
         if model == "skexgen":
@@ -124,8 +134,20 @@ def main():
                   ensure_ascii=False, indent=1)
         print(f"{model:10s} corpus_seqs={len(c['uids']):>7,} fingerprints={len(fps):>6,} "
               f"covered={len(covered)} novel={len(novel)}")
+        fz = frozen.get(model)
+        if fz is not None:
+            same = (fz["covered"] == covered and fz["novel"] == novel
+                    and fz["n_corpus_fps"] == len(fps))
+            print(f"{'  self-check: MATCH' if same else '  self-check: MISMATCH'} "
+                  f"vs shipped data/coverage/{model}.json")
+            n_mismatch += (not same)
 
     print("saved ->", OUT)
+    if frozen and n_mismatch:
+        print(f"SELF-CHECK FAILED: {n_mismatch} model(s) differ from the shipped files")
+        sys.exit(1)
+    if frozen:
+        print("self-check passed: rebuild matches the shipped coverage files exactly")
 
 
 if __name__ == "__main__":

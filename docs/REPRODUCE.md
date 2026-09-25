@@ -29,14 +29,14 @@ python check_labeling.py
 
 This re-labels the 46 stratified sample STEP files in `examples/steps_skexgen_sample/` (covering every Betti-signature bucket: no-hole, through-holes, cavities, multi-component solids, and invalid cases) and asserts exact agreement with `data/labels/skexgen_labels_v1.jsonl`. `run_all_checks.py` includes this as its first check.
 
-## 2. RQ2 — complexity-standardized covered–novel gap (Table 7)
+## 2. RQ2 — complexity-standardized covered–novel gap (Figure 3(c))
 
 ```bash
 python rq2/standardize_gap.py
 ```
 
 The script recomputes, per model, the raw and standardized covered–novel fidelity gap over a 3×3 stratification (C_topo layers × command-length
-terciles, L ≤ 6 / 7–14 / ≥ 15), reweighted to the novel group's cell distribution, with 95% sample-level bootstrap CIs (1000 resamples). Built-in asserts verify equality with the frozen numbers behind Table 7.
+terciles, L ≤ 6 / 7–14 / ≥ 15), reweighted to the novel group's cell distribution, with 95% sample-level bootstrap CIs (1000 resamples). Built-in asserts verify equality with the frozen numbers behind Figure 3(c).
 
 ## 3. RQ3-N — topology-directed intervention (Sec. 4.3)
 
